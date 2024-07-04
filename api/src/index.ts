@@ -2,7 +2,7 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { v4 as uuid } from "uuid";
 
-let authors = [
+let authors: {} = [
     {
         name: "Robert Martin",
         id: "afa51ab0-344d-11e9-a414-719c6709cf3e",
