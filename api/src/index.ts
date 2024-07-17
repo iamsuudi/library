@@ -4,7 +4,7 @@ import { v4 as uuid } from "uuid";
 
 interface Author {
 	name: string;
-    id?: string,
+	id?: string;
 	phone?: string;
 	born?: number;
 }
@@ -133,7 +133,10 @@ const resolvers = {
 	Query: {
 		bookCount: () => books.length,
 		authorCount: () => authors.length,
-		allBooks: (root: any, args: { author: string; genre: string }) => {
+		allBooks: (
+			root: any,
+			args: { author: string; genre: string }
+		): Book[] => {
 			let result = [...books];
 			if (args.author) {
 				result = result.filter((book) => book.author === args.author);
