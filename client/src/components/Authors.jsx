@@ -1,15 +1,16 @@
 import { useQuery } from "@apollo/client";
 import { ALL_AUTHORS } from "../services/queries";
+import EditBorn from "./EditBorn";
 
 const Authors = (props) => {
 	const result = useQuery(ALL_AUTHORS);
 
-	if (!props.show || result.error) {
+	if (!props.show) {
 		return null;
 	}
 
 	if (result.error) {
-		console.log("error");
+		console.log(result.error.message);
 		return null;
 	}
 
@@ -36,6 +37,8 @@ const Authors = (props) => {
 					))}
 				</tbody>
 			</table>
+
+			<EditBorn authors={result.data.allAuthors} />
 		</div>
 	);
 };

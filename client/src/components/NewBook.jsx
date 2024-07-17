@@ -12,10 +12,7 @@ const NewBook = (props) => {
 	const [addBook] = useMutation(ADD_BOOK, {
 		refetchQueries: [{ query: ALL_BOOKS }],
 		onError: (error) => {
-			const messages = error.graphQLErrors
-				.map((e) => e.message)
-				.join("\n");
-			console.log(messages);
+			console.log(error.message);
 		},
 	});
 
